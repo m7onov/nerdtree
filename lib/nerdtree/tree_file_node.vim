@@ -86,7 +86,11 @@ endfunction
 " Return:
 " a string that can be used in the view to represent this node
 function! s:TreeFileNode.displayString()
-    return self.path.flagSet.renderToString() . self.path.displayString()
+    if g:NERDTreeFlagsAtTheEnd == 0
+        return self.path.flagSet.renderToString() . self.path.displayString()
+    else
+        return self.path.displayString() . self.path.flagSet.renderToString()
+    endif
 endfunction
 
 " FUNCTION: TreeFileNode.equals(treenode) {{{1
