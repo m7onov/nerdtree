@@ -377,10 +377,8 @@ function! s:UI._stripMarkup(line)
     " strip off any bookmark flags
     let line = substitute (line, ' {[^}]*}', "","")
 
-    " m7: begin strip generic flags
-    " in case of generic flags follow executable flags e.g. docker-gz-stop-all.sh*[✭]
+    " in case of generic flags (git state) follow executable flags e.g. docker-stop-all.sh*[✭]
     let line = substitute (line, '\[[^]]*\]', "","")
-    " m7: end
 
     " strip off any executable flags
     let line = substitute (line, '*\ze\($\| \)', "","")
