@@ -374,6 +374,7 @@ endfunction
 " Args:
 " line: the subject line
 function! s:UI._stripMarkup(line)
+    " let l:line = substitute (a:line, '\[[^]]*\]', "","")
     let l:line = substitute(a:line, '^.\{-}' . g:NERDTreeNodeDelimiter, '', '')
     return substitute(l:line, g:NERDTreeNodeDelimiter.'.*$', '', '')
 endfunction
